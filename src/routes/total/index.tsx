@@ -1,9 +1,24 @@
-import React from "react";
+import CountBtn from "components/CountBtn";
+import { useRootContext } from "../../contexts/root/context";
+import Profile from "./Profile";
 
-export default function index() {
+export default function Total() {
+  const { state } = useRootContext();
+  const { profile } = state;
+
   return (
-    <div>      
-      <p>page total!</p>
+    <div
+      style={{
+        margin: "2rem",
+      }}
+    >
+      <p>total page!</p>
+      <p>count is: {state.count}</p>
+      <CountBtn />
+      <p>
+        I am {profile?.name}, {profile?.age} years old.
+      </p>
+      <Profile profile={profile as any} />
     </div>
   );
 }

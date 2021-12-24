@@ -1,13 +1,5 @@
 import React, { createContext, useContext } from "react";
-import { IRootAction } from "./reducer";
-
-export interface IState {
-  count: number;
-  profile?: {
-    name: string;
-    age: number;
-  };
-}
+import { IState, IRootAction } from "./types";
 
 export const initState: IState = {
   count: 0,
@@ -24,5 +16,6 @@ export const RootContext = createContext<{
   state: initState,
   dispatch: () => null,
 });
+
 export const RootContextProvider = RootContext.Provider;
 export const useRootContext = () => useContext(RootContext);

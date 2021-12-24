@@ -1,14 +1,4 @@
-import { IState } from "./context";
-
-export interface IRootAction {
-  type: "add_count" | "sub_count" | "update_profile";
-  payload:
-    | number
-    | {
-        name: string;
-        age: number;
-      };
-}
+import { IState, IRootAction } from "./types";
 
 export const rootReducer = (state: IState, action: IRootAction): IState => {
   const { type, payload } = action;
